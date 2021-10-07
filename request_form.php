@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Register Staff</title>
+<title>Request leave</title>
 <link rel="stylesheet" href="register.css">
 
 <div class="container">	
@@ -21,7 +21,7 @@
 					<option value="Ms.">Ms.</option>
 				</select></br>
             </div>
-
+            
 				<!--First Name-->
             <div class="firstname">
 				<label>First name</label>
@@ -30,65 +30,52 @@
 			</div>		
 
                 <!--Last Name-->
-            <div class="lastname">
 				<label>Last name</label>
 								
-				<input type="text" name="lastname"></br>
-            </div>
+				<input type="text" name="lastname"></br><br></br>
 
                 <!--Position-->
-            <div class="position">
 				<label>Position</label>
 								
 				<input type="text" name="position"></br>
-            </div>   
 
                 <!--Department-->
-            <div class="department">
                 <label>Department</label>
                 <select type = 'combo box' title="Department" name='department'>
 					<option value="A">A</option>
 					<option value="B">B</option>
 					<option value="C">C</option>
 				</select></br>
-            </div>
 
                 <!--Gender-->
-            <div class="gender">
                 <label>Gender</label>
                 <select type = 'combo box' title="Gender" name='gender'>
 					<option value="Male">Male</option>
 					<option value="Female">Female</option>
 				</select></br>
-            </div>
 				
                 <!--Birth Date-->
-            <div class="birth-date">
 				<label>Birth Date</label>
 				
 				<input type="date" name="birth date" ></br>
-            </div>
 
                 <!--Phone Number-->
-            <div class="phone-number">
+
                 <label>Phone Number</label>
 								
 				<input type="text" name="phone number"></br>
-            </div>
 
                 <!--Email-->
-            <div class="email">				
+								
 				<label>Email</label>
 								
 				<input type="text" name="email"></br>
-            </div>	
 
                 <!--Address-->
-			<div class="address">				
+								
 				<label>Address</label>
 								
 				<input type="textarea" rows="10" cols="30" name="Address"></br>
-            </div>	
         </div>
                 <!--------------------------------------------------------->
         <div class="Account-detail">
@@ -96,7 +83,6 @@
 				<h2> Account User Profile</h2>
 
                 <!--Status-->
-            <div class="status">
 
                 <label>Status</label>
 								
@@ -105,29 +91,22 @@
 					<option value="HR">HR</option>
 					<option value="Staff">Staff</option>
 				</select></br>
-            </div>
 
                 <!--Username-->
-            <div class="username">
 				<label>Username</label>
 												
 				<input type="text" name="username"></br>
-            </div>
 
                 <!--Password-->
-            <div class="password">
 				
 				<label>Password</label></br>
 											
 				<input type="password" name="password"></br>
-            </div>
 															
                 <!--Register button-->
-            <div class="register">
 				<div class="center">
 								
 				<input type="submit" name="submit" value ="Register">
-            </div>
 					
         </div>	
 		

@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
+<title>Profile</title>
 <link rel="stylesheet" href="default.css">
 </head>
 <body>
-    <h2>Attach File <h2>
+    <h2>Profile <h2>
     <div class="container">
     <p><label for="title"><b>Title</b></label>
           <input type="text" placeholder="Enter title" name="title" required></p>

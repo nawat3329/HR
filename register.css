@@ -10,15 +10,69 @@
     ". Account-detail Account-detail .";
   width: 900px;
   height: 900px;
-  
 }
 
-.Register-Staff { grid-area: Register-Staff;
- }
+.Register-Staff { grid-area: Register-Staff; }
 
-.User-detail { grid-area: User-detail;
-;
- }
+.User-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    "title title title"
+    "firstname lastname ."
+    "position position position"
+    "department department department"
+    "gender gender gender"
+    "birth-date birth-date birth-date"
+    "phone-number phone-number phone-number"
+    "email email email"
+    "address address address";
+  grid-area: User-detail;
+}
 
-.Account-detail { grid-area: Account-detail;
-    text-align:center; }
+.title { grid-area: title; }
+
+.firstname { grid-area: firstname; }
+
+.lastname { grid-area: lastname; }
+
+.position { grid-area: position; }
+
+.department { grid-area: department; }
+
+.gender { grid-area: gender; }
+
+.birth-date { grid-area: birth-date; }
+
+.phone-number { grid-area: phone-number; }
+
+.email { grid-area: email; }
+
+.address { grid-area: address; }
+
+.Account-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    "status status status"
+    "username username username"
+    "password password password"
+    "register register register";
+  grid-area: Account-detail;
+}
+
+.status { grid-area: status; }
+
+.username { grid-area: username; }
+
+.password { grid-area: password; }
+
+.register { grid-area: register; }
