@@ -1,0 +1,83 @@
+.container {
+    display: grid;
+    grid-template-columns: 0.4fr 1.3fr 1.3fr 1fr 1.6fr 0.4fr;
+    grid-template-rows: 0.6fr 0.5fr 1.9fr 2.4fr 0.3fr 0.3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+  }
+  
+  .Welcome { 
+      grid-area: 1 / 2 / 2 / 6; 
+    background-color: lightblue;
+    border-style: solid;
+    border-width: 1.5px;
+  }
+  
+  .Calendar { grid-area: 2 / 4 / 4 / 6; }
+  
+  .Name { grid-area: 2 / 2 / 3 / 4; 
+    background-color: #F5DEB3;
+  }
+  
+  .userfunc {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "request-leave"
+      "edit-profile";
+    grid-area: 3 / 2 / 4 / 4;
+  }
+  
+  .request-leave { grid-area: request-leave; 
+    
+}
+  
+  .edit-profile { grid-area: edit-profile; }
+  
+  .specialfunc {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "sf1 sf1 sf1"
+      "sf2 sf2 sf2"
+      "sf3 sf3 sf3";
+    grid-area: 4 / 2 / 5 / 4;
+  }
+  
+  .sf1 { grid-area: sf1; }
+  
+  .sf2 { grid-area: sf2; }
+  
+  .sf3 { grid-area: sf3; }
+  
+  .logout { grid-area: 5 / 2 / 6 / 4; }
+  
+  .event-list { grid-area: 4 / 4 / 6 / 6; }
+  
+  .username { grid-area: 2 / 2 / 3 / 3; }
+  
+  .quota { grid-area: 2 / 3 / 3 / 4; }
+  
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    
+    
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .main { grid-area: 2 / 2 / 6 / 6; }
