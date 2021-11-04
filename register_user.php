@@ -10,7 +10,7 @@
     </div>
 		<div class="User-detail">
 			
-			<!--<form action="user.php" method="post">-->>
+			<!--<form action="user.php" method="post">-->
 
                 <!--Title-->
             <div class="title">
@@ -77,6 +77,7 @@
 								
 				<input type="textarea" rows="10" cols="30" name="Address"></br>
         </div>
+				
                 <!--------------------------------------------------------->
         <div class="Account-detail">
 

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Register Staff</title>
+<title>Register User</title>
 <link rel="stylesheet" href="register.css">
 
 <div class="container">	
     <div class="Register-Staff">
-        <h1>Register-Staff</h1>
+        <h1>Register User</h1>
     </div>
 		<div class="User-detail">
 			
-			<!--<form action="user.php" method="post">-->>
+			<!--<form action="user.php" method="post">-->
 
                 <!--Title-->
             <div class="title">
@@ -88,19 +88,27 @@
 				<label>Address</label>
 								
 				<input type="textarea" rows="10" cols="30" name="Address"></br>
+            <!--Quota-->
+            <div class="quota">				
+                <label>Quota set</label>
+                            
+                <input type="textarea" rows="10" cols="30" name="Address"></br>
             </div>	
         </div>
+                
+        </div>
+        
                 <!--------------------------------------------------------->
         <div class="Account-detail">
 
-				<h2> Account User Profile</h2>
+				<h2> Account Profile</h2>
 
                 <!--Status-->
             <div class="status">
 
-                <label>Status</label>
+                <label>Position</label>
 								
-				 <select type = 'combo box' title="Status" name='status'>
+				<select type = 'combo box' title="Status" name='status'>
 					<option value="Admin">Admin</option>
 					<option value="HR">HR</option>
 					<option value="Staff">Staff</option>
