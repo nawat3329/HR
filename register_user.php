@@ -18,7 +18,7 @@
 				 <select type = 'combobox' title="title" name='title'>
 					<option value="Mr.">Mr.</option>
 					<option value="Mrs.">Mrs.</option>
-					<option value="Miss.">Ms.</option>
+					<option value="Mis.">Ms.</option>
 				</select></br>
             </div>
             
