@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2021 at 01:14 PM
+-- Generation Time: Nov 08, 2021 at 12:51 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -30,10 +30,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `company_event` (
   `Event_ID` int(11) NOT NULL,
   `Event_Name` varchar(45) NOT NULL,
-  `Event_Date_Start` date NOT NULL,
-  `Event_Date_End` date NOT NULL,
+  `Event_Date_Start` datetime NOT NULL,
+  `Event_Date_End` datetime NOT NULL,
   `Event_Detail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `company_event`
+--
+
+INSERT INTO `company_event` (`Event_ID`, `Event_Name`, `Event_Date_Start`, `Event_Date_End`, `Event_Detail`) VALUES
+(1, 'Holiday1', '2021-11-16 00:00:00', '2021-11-17 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -60,10 +67,11 @@ CREATE TABLE `leaving_form` (
   `Form_ID` int(8) NOT NULL,
   `Form_Title` varchar(45) NOT NULL,
   `Form_detail` text NOT NULL,
-  `Form_status` int(11) NOT NULL,
+  `Form_status` varchar(16) NOT NULL,
   `Form_DateStart` date NOT NULL,
   `Form_DateEnd` date NOT NULL,
-  `User_ID` int(8) NOT NULL
+  `User_ID` int(8) NOT NULL,
+  `Form_EL` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -84,8 +92,18 @@ CREATE TABLE `user` (
   `User_Tel` varchar(25) NOT NULL,
   `User_Address` text NOT NULL,
   `User_Username` varchar(25) NOT NULL,
-  `User_Password` varchar(25) NOT NULL
+  `User_Password` varchar(25) NOT NULL,
+  `User_Quota` int(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`User_ID`, `User_FNAME`, `User_LName`, `User_Gender`, `User_DOB`, `User_Department`, `User_Position`, `User_Email`, `User_Tel`, `User_Address`, `User_Username`, `User_Password`, `User_Quota`) VALUES
+(1, 'adminname', 'adminlast', 'Male', '1990-11-21', 'admin', 'admin', 'admin@mail.com', '0433456634565', 'admin house, admin captial, adminland, adminworld', 'admin', 'admin', 0),
+(2, 'hrname', 'hrlast', 'Female', '2021-11-03', 'hr', 'hr', 'hr', 'hr', 'hr', 'hr', 'hr', 0),
+(3, 'username', 'userlast', 'Male', '2021-11-01', 'Sell', 'staff', 'staff', 'staff', 'staff', 'staff', 'staff', 0);
 
 -- --------------------------------------------------------
 
@@ -120,7 +138,7 @@ ALTER TABLE `hr_staff`
 --
 ALTER TABLE `leaving_form`
   ADD PRIMARY KEY (`Form_ID`),
-  ADD KEY `User_User_ID` (`User_ID`);
+  ADD KEY `User_ID` (`User_ID`) USING BTREE;
 
 --
 -- Indexes for table `user`
@@ -143,7 +161,7 @@ ALTER TABLE `user_has_company_event`
 -- AUTO_INCREMENT for table `company_event`
 --
 ALTER TABLE `company_event`
-  MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `hr_staff`
@@ -161,7 +179,7 @@ ALTER TABLE `leaving_form`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `User_ID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
