@@ -24,7 +24,7 @@
         center:'title',
         right:'month,agendaWeek,agendaDay'
       },
-      events: 'Calendar/load.php',
+      events: 'calendar/load.php',
     });
   });
   
@@ -66,7 +66,7 @@
       echo '<h3>HR</h3>';
     echo '<button type="button">Leaving Request</button>';
     echo '<button type="button">User Quota</button>';
-    echo '<button type="button">Edit Calendar</button>';
+    echo '<a href="calendar_event.php" class="btn btn-success">Edit Calendar </a>';
     }
     ?>
   </div>
