@@ -3,12 +3,13 @@
 <html>
 
 <head>
-     <title>Profile</title>
+     <title>Request Leave Form</title>
      <link rel="stylesheet" href="default.css">
 </head>
 
 <body>
-     <h2>Profile <h2>
+     
+          <form action="leaving_status.php" method="post">
                <div class="container">
                     <p><label for="title"><b>Title</b></label>
                          <input type="text" placeholder="Enter title" name="title" required>
@@ -32,9 +33,10 @@
                          <input type="file" name="File">
                     </p>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit">Send</button>
+                    <button onclick="history.go(-1);">Back </button>
                </div>
-
+          </form>
 </body>
 
 </html>
