@@ -19,12 +19,12 @@ header("location: main.php"); // Redirecting To Profile Page
       
         <div class="container">
             <h2><label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required></h2>
+          <input type="text" placeholder="Enter Username" name="username" required></h2>
       
         <h2><label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required></h2>
+          <input type="password" placeholder="Enter Password" name="password" required></h2>
 
-                <button type = "submit" class ="btn btn-primary" >Login</button>
+                <button type = "submit" class ="btn btn-primary" name ="login" >Login</button>
         </div>
       
         <div class="containerlogin" style="background-color:#f1f1f1">
