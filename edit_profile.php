@@ -1,6 +1,15 @@
 <?php
 require_once('connect.php');
 session_start();
+$user_id = $_SESSION['User_ID'] ;
+$query = "SELECT User_FName,User_LName,User_Gender,User_DOB,User_Department,User_Position,User_Email,User_Tel,User_Address from User where User_ID=? LIMIT 1";
+// To protect MySQL injection for Security purpose
+$stmt = $mysqli->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$stmt->bind_result($firstname,$lastname,$gender,$datebirth,$position,$department,$uemail,$tel,$address);
+$stmt->store_result();
+while ($stmt->fetch()) {}
 
 ?>
 <!doctype html>
@@ -61,7 +70,7 @@ session_start();
       <div class="col-sm">
         <h5>tel no.</h5>
       </div>
-      <div class="col-sm"><input type="text" name="User_Tel"></div>
+      <div class="col-sm"><input type="text" name="User_Tel" placeholder= " "></div>
       <div class="col-sm"></div>
       <div class="w-100"></div>
       <div class="col-sm">

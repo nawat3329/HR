@@ -29,7 +29,13 @@
 	<div class="col-sm"></div>
 	<div class="w-100"> </div>
 	<div class="col-sm"><h5>Position</h5></div>
-	<div class="col-sm"><input type="text" name="Position"></div>
+	<div class="col-sm">
+	<select name = "Position" >
+	 <option value ="admin">admin</option>
+	 <option value ="hr">hr</option>
+	 <option value ="staff">staff</option>
+	</select>
+	</div>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Department</h5></div>
@@ -37,7 +43,13 @@
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Gender</h5></div>
-	<div class="col-sm"><input type="text" name="Gender" ></div>
+	<div class="col-sm">
+	<Select name="Gender" >
+	<option value ="Male">Male</option>
+	<option value ="Female">Female</option>
+	<option value ="Other">Other</option>
+	</select>
+	</div>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Birthdate</h5></div>

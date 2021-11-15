@@ -1,20 +1,16 @@
 <?php 
 require_once('connect.php');
 session_start();
-$_SESSION['test'] = 1;
-if (isset($_SESSION['test'])) {
-  $firstname = $_SESSION['User_FName'];
-  $lastname = $_SESSION['User_LName'];
-  $position=$_SESSION['User_Position'];
-	$department=$_SESSION['User_Department'];
-	$gender=$_SESSION['User_Gender'];
-  $datebirth=$_SESSION['User_DOB'];
-  $tel=$_SESSION['User_Tel'];
-  $uemail=$_SESSION['User_Email'];
-  $address=$_SESSION['User_Address'];
-  $quota=$_SESSION['User_Quota'];
-  echo 'yeah';
-}
+$user_id = $_SESSION['User_ID'] ;
+$query = "SELECT User_FName,User_LName,User_Gender,User_DOB,User_Department,User_Position,User_Email,User_Tel,User_Address from User where User_ID=? LIMIT 1";
+// To protect MySQL injection for Security purpose
+$stmt = $mysqli->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$stmt->bind_result($firstname,$lastname,$gender,$datebirth,$position,$department,$uemail,$tel,$address);
+$stmt->store_result();
+while ($stmt->fetch()) {}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +35,7 @@ if (isset($_SESSION['test'])) {
                   <div class="row">
                     <div class="col-md-12">
                       <?php 
-                      echo "<h5>Name :".$firstname."" .$lastname."</h5>";
+                      echo "<h5>Name :".$firstname."  " .$lastname."</h5>";
                       echo "<h5>Position :".$position."</h5>";
                       echo "<h5>Department :".$department."</h5>";
                       echo "<h5>Gender :".$gender."</h5>";

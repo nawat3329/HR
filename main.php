@@ -49,10 +49,10 @@
   </div>
   <div class="userfunc">
     <div class="request-leave">
-    <button type="button">Request Leave</button>
+    <a href="requestleave_menu.html"><button type="button">Request Leave</button></a>
     </div>
     <div class="edit-profile">
-    <button type="button">Profile</button>
+    <a href="user_profile.php"><button type="button">Profile</button></a>
     </div>
   </div>
   

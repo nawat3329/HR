@@ -47,8 +47,7 @@
                     <td><?php echo $row['form_datestart'] ?></td>
                     <td><?php echo $row['form_dateend'] ?></td>
                     <td><?php echo $row['form_detail'] ?></td>
-                    <td><select name="approved" id="">Approved
-                        <option value="">Approved</option>
+                    <td><select name="approved" id="">Approved<option value="">Approved</option>
                         <option value="">Denied</option>
                       </select>
                       <a class="btn btn-primary" href="#" name="confirmApp" type="submit" action="Approved.php" method='post'>confirm</a>

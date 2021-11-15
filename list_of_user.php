@@ -37,15 +37,17 @@ $sql = 'SELECT User_ID,User_Username,User_Department,User_Quota FROM `user`';
 						echo "Select failed. Error: ".$mysqli->error ;
 						return false;
 					}
-          while($row=$result->fetch_array()){ ?>
-            <tr>
-                <td><?=$row['User_ID']?></td> 
-                <td><?=$row['User_Username']?></td>
-                <td><?=$row['User_Department']?></td>
-                <td><?=$row['User_Quota']?></td>
-                <td><a class='btn btn-success' href ='admin_edit_profile.php?uid=<?=$row['User_ID']?>'>Edit</a></td>
+          while($row=$result->fetch_array()){ 
+            echo "<tr>";
+                echo "<td>".$row['User_ID']."</td>";
+                echo "<td>".$row['User_Username']."</td>";
+                echo "<td>".$row['User_Department']."</td>";
+                echo "<td>".$row['User_Quota']."</td>";?>
+                <td><a class='btn btn-warning' href ="admin_edit_profile.php?uid=<?php echo $row['User_ID']?>"> Edit</a></td>
             </tr>
-            <?php } ?>
+            <?php
+              } 
+              ?>
             </table>
             <a class ='btn btn-primary' href ='main.php'>Back</a>
             <a class ='btn btn-success' href ='register_user.php'>Register</a>

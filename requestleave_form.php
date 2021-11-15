@@ -1,4 +1,6 @@
-<?php require_once('connect.php'); ?>
+<?php require_once('connect.php');
+session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +12,7 @@
 
 	<div id="div_main">
 		<div id="div_content" class="form">
-			<form action="leaving_status.php" method="post">					
+			<form action="leaving_insert.php" method="post">					
 				<label>Title</label>
 				<input type="text" name="title">
 						
@@ -26,11 +28,9 @@
 				<label>Emergency Leave</label>
 				<input type="checkbox" name="emergency" value="1">
 
-                <label>Attach File</label>
-				<input type="file" name="file">
 
-				<input type="submit" name="sub" value="Submit">	
-                <button onclick="history.go(-1);">Back </button>		
+				<input type="submit" name="submit" value="Submit">	
+                <a href= requestleave_menu.html><button >Back </button></a>		
 			</form>
 		</div>
 	</div>
