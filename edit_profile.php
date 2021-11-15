@@ -1,94 +1,13 @@
-<?php
-require_once('connect.php');
-session_start();
-
-?>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-  <title>Edit Profile</title>
+  <title>Edit User Profile</title>
 </head>
-
 <body>
-  <p></p>
-  <nav class="navbar" style='height:80px; background-color: dodgerblue;'>
-    <span class="navbar-brand mb-0 h1">Edit Profile</span>
-  </nav>
-  <p></p>
 
-
-  <form action="edit_profile_update.php" method='post'>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          <h5>Name</h5>
-        </div>
-      </div>
-      <div class="col-sm"></div>
-      <div class="w-100"></div>
-      <div class="col-sm">
-        <h5>Position</h5>
-      </div>
-      <div class="col-sm"></div>
-      <div class="col-sm"></div>
-      <div class="w-100"></div>
-      <div class="col-sm">
-        <h5>Department</h5>
-      </div>
-      <div class="col-sm"></div>
-      <div class="col-sm"></div>
-      <div class="w-100"></div>
-      <div class="col-sm">
-        <h5>Gender</h5>
-      </div>
-      <div class="col-sm"></div>
-      <div class="col-sm"></div>
-      <div class="w-100"></div>
-      <div class="col-sm">
-        <h5>Birthdate</h5>
-      </div>
-      <div class="col-sm"></div>
-      <div class="col-sm"></div>
-      <div class="w-100"></div>
-      <div class="col-sm">
-        <h5>tel no.</h5>
-      </div>
-      <div class="col-sm"><input type="text" name="User_Tel"></div>
-      <div class="col-sm"></div>
-      <div class="w-100"></div>
-      <div class="col-sm">
-        <h5>Email</h5>
-      </div>
-      <div class="col-sm"><input type="text" name="User_Email"></div>
-      <div class="col-sm"></div>
-      <div class="w-100"></div>
-      <div class="col-sm">
-        <h5>Address</h5>
-      </div>
-      <div class="col-sm"><input type="text" name="User_Address"></div>
-      <div class="col-sm"></div>
-      <div class="w-100"></div>
-      <div class="col-sm">
-        <h5>Quota given</h5>
-      </div>
-      <div class="col-sm"></div>
-
-    </div>
-
-    <p></p>
-    <button type='submit' name='su' class='btn-success'>Edit</button>
-    <p></p>
-  </form>
-  <a class='btn btn-primary' href='user_profile.php'>Back</a>
+<button type ='button'>Back</button>
+<button type ='button'>Save</button>
 
 </body>
-
 </html>
