@@ -20,11 +20,11 @@
 	<form action ="register_insert.php" method='post'>
 	<div class="container">
 	<div class="row">
-	<div class="col-sm"><h5>Firstname</h5></div>
+	<div class="col-sm"><h5>First name</h5></div>
 	<div class="col-sm"><input type="text" name="Fname" id='name'></div>
 	<div class="col-sm"></div>
 	<div class="w-100"> </div>
-	<div class="col-sm"><h5>Lastname</h5></div>
+	<div class="col-sm"><h5>Last name</h5></div>
 	<div class="col-sm"><input type="text" name="Lname"></div>
 	<div class="col-sm"></div>
 	<div class="w-100"> </div>
@@ -89,6 +89,3 @@ function myFunction() {
 </script>
 	</body>
 	</html>
-	
-
-	
