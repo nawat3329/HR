@@ -15,20 +15,24 @@ $User_ID = $_SESSION['User_ID'];
                 <col width="10%">
                 <col width="20%">
                 <col width="20%">
-                <col width="25%">
-                <col width="25%">
+                <col width="20%">
+                <col width="20%">
+                <col width="10%">
 
                 <tr>
+                    <th>User_ID</th>
                     <th>Title</th> 
                     <th>Reason</th>
                     <th>Date Start</th>
                     <th>Date End</th>
                     <th>Status</th>  
+                    <th>Quota Remaining</th>
                     <th>Emergency Leave</th>
                 </tr>
  		 <?php 
           
 				 	$q="select * from leaving_form inner join user on leaving_form.user_id = user.user_id ";
+          
           
 					$result=$mysqli->query($q); 
 					if(!$result){
@@ -40,11 +44,14 @@ $User_ID = $_SESSION['User_ID'];
                       $row['Form_status'] = "Waiting";
                     } ?>
                  <tr> 
+                    <td><?=$row['User_ID']?></td>
                     <td><?=$row['Form_Title']?></td> 
 					          <td><?=$row['Form_detail']?></td>
                     <td><?=$row['Form_DateStart']?></td>
                     <td><?=$row['Form_DateEnd']?></td>
                     <td><?=$row['Form_status']?></td>
+                    <td><?=$row['User_Quota']?></td>
+                    
                     
 					<td>
             

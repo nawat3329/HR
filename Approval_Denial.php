@@ -27,37 +27,51 @@
                 <tr>
                   <th>FormID</th>
                   <th>User</th>
+                  <th>User Quota</th>
                   <th>Title</th>
                   <th>Start</th>
                   <th>End</th>
+                  <th>Total Quota Use</th>
+                  <th>Remaining Quota</th>
                   <th>Detail</th>
                   <th>Approved</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                $q = "select Form_ID,User_ID,Form_Title,Form_DateStart,Form_DateEnd,Form_detail,Form_status from leaving_form WHERE Form_status IS NULL ";
+                $q = "select Form_ID,user.User_ID,user.User_Quota,Form_Title,Form_DateStart,Form_DateEnd,Form_detail,Form_status from leaving_form inner join user on leaving_form.user_id= user.User_id WHERE Form_status IS NULL ";
                 $result = $mysqli->query($q);
                 if (!$result) {
                   echo "Select failed. Error: " . $mysqli->error;
                   return false;
                 }
+                
+                
+    
                 while ($row = $result->fetch_array()) { 
-                  
+                  $date1= new DateTime($row['Form_DateStart']);
+                $date2=new DateTime($row['Form_DateEnd']);
+                $diff=date_diff($date2,$date1);
+                $remain = $row['User_Quota']- $diff->format('%a');
                   ?>
                 
                   <tr>
                     <td><?php echo $row['Form_ID'] ?></td>
                     <td><?php echo $row['User_ID'] ?></td>
+                    <td><?php echo $row['User_Quota'] ?></td>
                     <td><?php echo $row['Form_Title'] ?> </td>
                     <td><?php echo $row['Form_DateStart'] ?></td>
                     <td><?php echo $row['Form_DateEnd'] ?></td>
+                    <td><?php echo $diff->format('%a') ?></td>
+                    <td><?php echo $remain ?></td>
                     <td><?php echo $row['Form_detail'] ?></td>
                     <form action = 'Approved.php' method = 'post'>
                     <td>
                      
                     <?php   
+                    echo "<input type='hidden' name='User_ID' value=".$row['User_ID'].">";
                     echo "<input type='hidden' name='Form_ID' value=".$row['Form_ID'].">";
+                    echo "<input type='hidden' name='Remain' value=". $remain.">";
                     ?>
                     <select name="Form_status">
                     <option value="Approved">Approved</option>

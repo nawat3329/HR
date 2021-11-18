@@ -35,15 +35,6 @@ if(!isset($_SESSION["firstname"])) {
       },
       events: 'calendar/load.php',
     });
-    var calendar1 = $('#calendar1').fullCalendar({
-      editable:false,
-      header:{
-        left:'prev,next today',
-        center:'title',
-        right:'month,agendaWeek,agendaDay'
-      },
-      events: 'calendar/load2.php',
-    });
   });
   
   
@@ -65,7 +56,7 @@ if(!isset($_SESSION["firstname"])) {
   <div class="Name">
   <?php
     echo "<h3>Name: ".$firstname."<h3>";
-
+    
   echo "<h3>Quota remaining:".$user_quota."<h3>";
   ?>
   </div>
@@ -117,11 +108,7 @@ if(!isset($_SESSION["firstname"])) {
     
     
   </div>
-  <div class="container">
-    <div id="calendar1"></div>
-    
-    
-  </div>
+  
   <div id="eventlist"></div>
 </div>
 </body>
