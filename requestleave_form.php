@@ -3,8 +3,9 @@ session_start(); ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <title>Request Leave Form</title>
 </head>
 
@@ -29,8 +30,8 @@ session_start(); ?>
 				<input type="checkbox" name="emergency" value="1">
 
 
-				<input type="submit" name="submit" value="Submit">	
-                <a href= requestleave_menu.html><button >Back </button></a>		
+				<input type="submit" name="submitt" value="Submit">	
+                <a class="btn btn-primary" href= requestleave_menu.html>Back</a>		
 			</form>
 		</div>
 	</div>

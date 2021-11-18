@@ -1,9 +1,18 @@
 <!--- main page after login --->
-<?php 
+<?php
+ 
   session_start();
+if(!isset($_SESSION["firstname"])) {
+  header ("Location: login_form.php"); 
+  }
+
+  
   require('connect.php');
   $firstname = $_SESSION['firstname'];
-  $user_position = $_SESSION['user_position']
+  $user_position = $_SESSION['user_position'];
+  $user_quota = $_SESSION['User_Quota'];
+
+   
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,6 +46,8 @@
     <h1>Welcome back!</h1>
   
   </div>
+
+  
   
   <!--<div class="Calendar">
     <img src="calendar.png" alt="calendar" class="calendar">
@@ -44,8 +55,9 @@
   <div class="Name">
   <?php
     echo "<h3>Name: ".$firstname."<h3>";
+  
+  echo "<h3>Quota remaining:".$user_quota."<h3>";
   ?>
-  <h3>Quota remaining:<h3>
   </div>
   <div class="userfunc">
     <div class="request-leave">
@@ -64,8 +76,9 @@
     <?php
     if ($user_position == "hr"){
       echo '<h3>HR</h3>';
-    echo '<button type="button">Leaving Request</button>';
-    echo '<button type="button">User Quota</button>';
+    echo '<a href="Approval_Denial.php"><button type="button">Leaving Request</button></a>';
+    echo '<a href="leaving_hr.php" class="btn btn-success">All Leaving Status </a>';
+    echo '<a href="user_quota_list.php" class="btn btn-success">User Quota </a>';
     echo '<a href="calendar_event.php" class="btn btn-success">Edit Calendar </a>';
     }
     ?>
@@ -76,16 +89,18 @@
     <?php
     if ($user_position == "admin"){
     echo '<h3>Admin</h3>';
-    echo '<button type="button">Register New Staff</button>';
-    echo '<button type="button">List of User</button>';
-    echo '<button type="button">Reset All Quota</button>';
+    echo '<a href="register_user.php" class="btn btn-success">Register New Staff</a>';
+    echo '<p></p>';
+    echo '<a href="list_of_user.php" class="btn btn-success">List of User</a>';
+    echo '<p></p>';
+    echo '<a type="button" href="reset_quota.php" class="btn btn-danger">Reset All Quota</a>';
   }
   ?>
     </div>
     <div class="sf3"></div>
   </div>
   <div class="logout">
-  <button type="button">logout</button>
+  <a type="button" href="logout.php">logout</a>
   </div>
   <div class="container">
     <div id="calendar"></div>

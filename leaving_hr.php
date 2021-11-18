@@ -6,7 +6,7 @@ $User_ID = $_SESSION['User_ID'];
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Leaving Status</title>
+  <title>All Leaving status</title>
 </head>
 <body>
   <div id="div_content" class="Leaving request">
@@ -28,7 +28,7 @@ $User_ID = $_SESSION['User_ID'];
                 </tr>
  		 <?php 
           
-				 	$q="select * from leaving_form inner join user on leaving_form.user_id = user.user_id where user.user_id = $User_ID";
+				 	$q="select * from leaving_form inner join user on leaving_form.user_id = user.user_id ";
           
 					$result=$mysqli->query($q); 
 					if(!$result){
@@ -64,7 +64,7 @@ $User_ID = $_SESSION['User_ID'];
 
   
 
-  <a href= "requestleave_menu.html"><button >Back </button></a>
+  <a href= "main.php"><button >Back </button></a>
 
 
 </body>

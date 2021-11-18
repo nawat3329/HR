@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+	require_once('connect.php');
+
+	?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,14 +23,33 @@
 	<p></p>
 	
 
-	<?php 
-	require_once('connect.php');
+	<?php 	
 	$uid = $_GET['uid'];
 	
+$query = "SELECT * from User where User_ID = ? LIMIT 1";
+// To protect MySQL injection for Security purpose
+$stmt = $mysqli->prepare($query);
+$stmt->bind_param("i", $uid);
+$stmt->execute();
+$result = $stmt -> get_result();
+while ($row = $result->fetch_assoc()){
+	$firstname=$row["User_FNAME"];
+	$lastname=$row["User_LName"];
+	$department=$row["User_Department"];
+	$birthdate=$row["User_DOB"];
+	$tel=$row["User_Tel"];
+	$uemail = $row["User_Email"];
+	$address=$row["User_Address"];
+	$quota = $row["User_Quota"];
+	$username=$row["User_Username"];
+	$password=$row["User_Password"];
+}
+
+
 	?>
 
 
-	<form action="Admin_edit_update.php" method ='post'>
+	<form action="Admin_edit_update.php"  method ='post'>
 	<div class="container">
 	<div class="row">
 	<div class="col-sm"><h5>ID</h5></div>
@@ -36,11 +60,16 @@
 	</div>
 	<div class="w-100"> </div>
 	<div class="col-sm"><h5>First name</h5></div>
-	<div class="col-sm"><input type="text" name="User_FName" ></div>
+	<?php
+		echo "<input type='text' name ='User_FName' value ='".$firstname."' >";
+	?>
 	<div class="col-sm"></div>
 	<div class="w-100"> </div>
 	<div class="col-sm"><h5>Last name</h5></div>
-	<div class="col-sm"><input type="text" name="User_LName"></div>
+
+	<?php
+		echo "<input type='text' name ='User_LName' value ='".$lastname."' >";
+	?>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Position</h5></div>
@@ -54,7 +83,9 @@
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Department</h5></div>
-	<div class="col-sm"><input type="text" name="User_Department"></div>
+	<?php
+		echo "<input type='text' name ='User_Department' value ='".$department."' >";
+	?>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Gender</h5></div>
@@ -68,32 +99,46 @@
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Birthdate</h5></div>
-	<div class="col-sm"><input type="date" name="User_DOB"></div>
+	<?php
+		echo "<input type='date' name ='User_DOB' value ='".$birthdate."' >";
+	?>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>tel no.</h5></div>
-	<div class="col-sm"><input type="text" name="User_Tel"></div>
+	<?php
+		echo "<input type='text' name ='User_Tel' value ='".$tel."' >";
+	?>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Email</h5></div>
-	<div class="col-sm"><input type="text" name="User_Email"></div>
+	<?php
+		echo "<input type='text' name ='User_Email' value ='".$uemail."' >";
+	?>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Address</h5></div>
-	<div class="col-sm"><input type="text" name="User_Address"></div>
+	<?php
+		echo "<textarea name ='User_Address' rows = '3' cols = '40' >".$address."</textarea>";
+	?>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Quota given</h5></div>
-	<div class="col-sm"><input type="text" name="User_Quota"></div>
+	<?php
+		echo "<input type='text' name ='User_Quota' value ='".$quota."' >";
+	?>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Username</h5></div>
-	<div class="col-sm"><input type="username" name="User_Username"></div>
+	<?php
+		echo "<input type='text' name ='User_Username' value ='".$username."' >";
+	?>
 	<div class="col-sm"></div>
 	<div class="w-100"></div>
 	<div class="col-sm"><h5>Password</h5></div>
 	<div class="col-sm">
-	<input type="password" name="User_Password" id='input'>
+	<?php
+		echo "<input type='password' name ='User_Password' id='input' value ='".$password."' >";
+	?>
 	<p></p>
 	<input type="checkbox" onclick="myFunction()"> Show Password
 	</div>

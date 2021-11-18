@@ -43,19 +43,15 @@ while ($stmt->fetch()) {}
                       echo "<h5>Telephone no:".$tel."</h5>";
                       echo "<h5>Email :".$uemail."</h5>";
                       echo "<h5>Address :".$address."</h5>";
-                      echo "<h5>Quota remaining :".$department."</h5>";
                       ?>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <div class="row" >
-                        <div class="col-md-8"></div>
-                        <div class="col-md-3 align-items-center d-flex justify-content-center p-3"> <a class="btn btn-primary btn-lg" href="main.php">Back</a> </div>
-                      </div>
+
                       <div class="row">
                         <div class="col-md-8 justify-content-center p-3"><a class="btn btn-primary btn-lg" href="edit_profile.php">Edit</a></div>
-                        <div class="col-md-3 align-items-center d-flex justify-content-center p-3"> <a class="btn btn-primary btn-lg" href="change_password.html">Change Password</a> </div>
+                        <div class="col-md-3 align-items-center d-flex justify-content-center p-3"> <a class="btn btn-primary btn-lg" href="main.php">Back</a> </div>
                       </div>
                     </div>
                   </div>

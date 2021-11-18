@@ -1,4 +1,5 @@
-<?php require_once('connect.php'); ?>
+<?php require_once('connect.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -24,6 +25,7 @@
             <table class="table table-bordered ">
               <thead class="thead-dark">
                 <tr>
+                  <th>FormID</th>
                   <th>User</th>
                   <th>Title</th>
                   <th>Start</th>
@@ -34,26 +36,39 @@
               </thead>
               <tbody>
                 <?php
-                $q = "select user_id,form_title,form_datestart,form_dateend,form_detail from leaving_form ";
+                $q = "select Form_ID,User_ID,Form_Title,Form_DateStart,Form_DateEnd,Form_detail,Form_status from leaving_form WHERE Form_status IS NULL ";
                 $result = $mysqli->query($q);
                 if (!$result) {
                   echo "Select failed. Error: " . $mysqli->error;
                   return false;
                 }
-                while ($row = $result->fetch_array()) { ?>
+                while ($row = $result->fetch_array()) { 
+                  
+                  ?>
+                
                   <tr>
-                    <td><?php echo $row['user_id'] ?></td>
-                    <td><?php echo $row['form_title'] ?> </td>
-                    <td><?php echo $row['form_datestart'] ?></td>
-                    <td><?php echo $row['form_dateend'] ?></td>
-                    <td><?php echo $row['form_detail'] ?></td>
-                    <td><select name="approved" id="">Approved<option value="">Approved</option>
-                        <option value="">Denied</option>
+                    <td><?php echo $row['Form_ID'] ?></td>
+                    <td><?php echo $row['User_ID'] ?></td>
+                    <td><?php echo $row['Form_Title'] ?> </td>
+                    <td><?php echo $row['Form_DateStart'] ?></td>
+                    <td><?php echo $row['Form_DateEnd'] ?></td>
+                    <td><?php echo $row['Form_detail'] ?></td>
+                    <form action = 'Approved.php' method = 'post'>
+                    <td>
+                     
+                    <?php   
+                    echo "<input type='hidden' name='Form_ID' value=".$row['Form_ID'].">";
+                    ?>
+                    <select name="Form_status">
+                    <option value="Approved">Approved</option>
+                        <option value="Denied">Denied</option>                
                       </select>
-                      <a class="btn btn-primary" href="#" name="confirmApp" type="submit" action="Approved.php" method='post'>confirm</a>
+                      <button class="btn btn-primary" name="confirmApp" type="submit">confirm</button>
+                      </form>
                     </td>
                   </tr>
-                <?php } ?>
+                <?php 
+                } ?>
               </tbody>
             </table>
             <div class="col-md-12 text-center d-md-flex justify-content-between align-items-center">

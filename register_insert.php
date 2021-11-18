@@ -1,10 +1,8 @@
 
 		<?php
         require_once('connect.php');
-        echo "nononnonono1";
         if(isset($_POST['submit'])) {
 		// Taking all  values from the form 
-        echo "nononnonono2.5";
 
 		$User_Fname = $_POST['Fname'];
 		$User_Lname = $_POST['Lname'];
@@ -20,21 +18,17 @@
 		$User_Quota = $_POST['Quota'];
 		// Performing insert query execution
 		// here our table name is user
-        echo "nononnonono2.5";
 		$sql = "INSERT INTO user(User_Fname,User_Lname,User_Gender,User_DOB,User_Department,User_Position,User_Email,User_Tel,User_Address,
         User_Username,User_Password,User_Quota) VALUES ('$User_Fname','$User_Lname','$User_Gender','$User_DOB','$User_Department','$User_Position',
         '$User_Email','$User_Tel','$User_Address','$User_Username','$User_Password','$User_Quota');";
 		
-		
-        echo "nononnonono2";
-
         $result1=$mysqli->query($sql);
 		if(!$result1){
 			echo "INSERT failed. Error: ".$mysqli->error ;
 			return false;
 			}
         echo '<script>alert("register successful!")</script>';
-		header("Location: register_user.php");
+		header("Location: list_of_user.php");
 		}
 		?>
 	

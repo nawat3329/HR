@@ -2,8 +2,7 @@
 session_start(); 
 $User_ID = $_SESSION['User_ID'];
 
-  echo $User_ID;
-				if(isset($_POST['submit'])) {
+				if(isset($_POST['submitt'])) {
           			$title = $_POST['title'];
 					$reason = $_POST['reason'];
 					$s_date = $_POST['sdate'];
