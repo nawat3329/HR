@@ -1,168 +1,170 @@
-<?php 
-	session_start();
-	require_once('connect.php');
+<?php
+session_start();
+require_once('connect.php');
 
-	?>
+?>
 <!doctype html>
 <html lang="en">
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+	<title>Edit user profile (Admin only)</title>
+</head>
 
-		<title>Edit user profile (Admin only)</title>
-	</head>
-	<body>
-	<p></p>
-	<nav class="navbar" style ='height:80px; background-color: dodgerblue;'>
-	<span class="navbar-brand mb-0 h1">Edit user profile (Admin only)</span>
-	</nav>
-	<p></p>
-	
-
-	<?php 	
-	$uid = $_GET['uid'];
-	
-$query = "SELECT * from User where User_ID = ? LIMIT 1";
-// To protect MySQL injection for Security purpose
-$stmt = $mysqli->prepare($query);
-$stmt->bind_param("i", $uid);
-$stmt->execute();
-$result = $stmt -> get_result();
-while ($row = $result->fetch_assoc()){
-	$firstname=$row["User_FNAME"];
-	$lastname=$row["User_LName"];
-	$department=$row["User_Department"];
-	$birthdate=$row["User_DOB"];
-	$tel=$row["User_Tel"];
-	$uemail = $row["User_Email"];
-	$address=$row["User_Address"];
-	$quota = $row["User_Quota"];
-	$username=$row["User_Username"];
-	$password=$row["User_Password"];
-}
+<body>
+	<div class="py-5 " style="background-color: #c5e1e4;">
+		<div class="container " style="background-color: white;">
+			<div class="row text-center">
+				<div class="col-md-12" style="background-color: #fbdd9d;">
+					<h1 class="display-4" style="color: white;font-family: 'Segoe Print';"><img style="position: relative; left: 14px;" src="image/folder.png" width="50px" height="50px"> Edit user profile (Admin only)</h1>
+				</div>
+			</div>
+			<br>
 
 
-	?>
+			<?php
+			$uid = $_GET['uid'];
+
+			$query = "SELECT * from User where User_ID = ? LIMIT 1";
+			// To protect MySQL injection for Security purpose
+			$stmt = $mysqli->prepare($query);
+			$stmt->bind_param("i", $uid);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			while ($row = $result->fetch_assoc()) {
+				$firstname = $row["User_FNAME"];
+				$lastname = $row["User_LName"];
+				$department = $row["User_Department"];
+				$birthdate = $row["User_DOB"];
+				$tel = $row["User_Tel"];
+				$uemail = $row["User_Email"];
+				$address = $row["User_Address"];
+				$quota = $row["User_Quota"];
+				$username = $row["User_Username"];
+				$password = $row["User_Password"];
+			}
 
 
-	<form action="Admin_edit_update.php"  method ='post'>
-	<div class="container">
-	<div class="row">
-	<div class="col-sm"><h5>ID</h5></div>
-	<div class="col-sm">
-	<?php
-	echo "<input type='text' name ='User_ID' value ='".$uid."' readonly>";
-	?>
+			?>
+
+
+			<form action="Admin_edit_update.php" method='post'>
+				<div id="div_content" class="form" style="color: #0c4876;font-family: 'Bahnschrift';font-size:18px;position: relative; left: 14px;">
+
+					<label style="position: relative; left: 14px;">ID</label>
+					<?php
+					echo "<input type='text' name ='User_ID' style='color: #0c4876;font-size:18px;position: relative; left: 92px;' value ='" . $uid . "' readonly>";
+					?>
+					<br>
+					<label style="position: relative; left: 14px;">First name</label>
+					<?php
+					echo "<input type='text' name ='User_FName' style='color: #0c4876;font-size:18px;position: relative; left: 21px;' value ='" . $firstname . "' >";
+					?>
+					<br>
+					<label style="position: relative; left: 14px;">Last name</label>
+
+					<?php
+					echo "<input type='text' name ='User_LName' style='color: #0c4876;font-size:18px;position: relative; left: 23px;' value ='" . $lastname . "' >";
+					?>
+					<br>
+
+					<label style="position: relative; left: 14px;">Position</label>
+					<select name="User_Position" style="color: #0c4876;font-family: 'Bahnschrift';font-size:18px;position: relative; left: 44px;">
+						<option value="admin">admin</option>
+						<option value="hr">hr</option>
+						<option value="staff">staff</option>
+					</select>
+					<br>
+
+					<label style="position: relative; left: 14px;">Department</label>
+					<?php
+					echo "<input type='text' name ='User_Department' style='color: #0c4876;font-size:18px;position: relative; left: 14px;' value ='" . $department . "' >";
+					?>
+					<br>
+
+					<label style="position: relative; left: 14px;">Gender</label>
+
+					<Select name="User_Gender" style="color: #0c4876;font-family: 'Bahnschrift';font-size:18px;position: relative; left: 51px;">
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+						<option value="Other">Other</option>
+					</select>
+					<br>
+
+
+					<label style="position: relative; left: 14px;">Birthdate</label>
+
+					<?php
+					echo "<input type='date' name ='User_DOB' style='color: #0c4876;font-size:18px;position: relative; left: 34px;' value ='" . $birthdate . "' >";
+					?>
+					<br>
+
+					<label style="position: relative; left: 14px;">tel no.</label>
+
+					<?php
+					echo "<input type='text' name ='User_Tel' style='color: #0c4876;font-size:18px;position: relative; left: 60px;' value ='" . $tel . "' >";
+					?>
+					<br>
+
+					<label style="position: relative; left: 14px;">Email</label>
+
+					<?php
+					echo "<input type='text' name ='User_Email' style='color: #0c4876;font-size:18px;position: relative; left: 64px;' value ='" . $uemail . "' >";
+					?>
+					<br>
+
+					<label style="position: relative; left: 14px; bottom:70px;">Address</label>
+
+					<?php
+					echo "<textarea name ='User_Address' rows = '3' cols = '40' style='color: #0c4876;font-size:18px;position: relative; left: 43px;'>" . $address . "</textarea>";
+					?>
+					<br>
+
+					<label style="position: relative; left: 14px;">Quota given</label>
+					<?php
+					echo "<input type='text' name ='User_Quota' style='color: #0c4876;ffont-size:18px;position: relative; left: 15px;' value ='" . $quota . "' >";
+					?>
+					<br>
+
+					<label style="position: relative; left: 14px;">Username</label>
+					<?php
+					echo "<input type='text' name ='User_Username' style='color: #0c4876;font-size:18px;position: relative; left: 27px;' value ='" . $username . "' >";
+					?>
+					<br>
+
+					<label style="position: relative; left: 14px;">Password</label>
+					<?php
+					echo "<input type='password' name ='User_Password' id='input' style='color: #0c4876;font-size:18px;position: relative; left: 30px;' value ='" . $password . "' >";
+					?>
+					<input type="checkbox" style="position: relative; left: 30px;" onclick="myFunction()"> <label style="position: relative; left: 30px;">Show Password</label>
+					<button class="btn btn-success" type='submit' name='su' style="font-family: 'Lucida Sans';font-size: 18px;position: relative; left: 30px;" class='btn-success'>Save</button>
+				</div>
+
+			</form>
+			<br>
+
+			<a class='btn btn-dark' style="font-family: 'Lucida Sans';font-size: 18px;position: relative; left: 30px;" href='list_of_user.php'>Back</a>
+			<script>
+				function myFunction() {
+					var x = document.getElementById("input");
+					if (x.type === "password") {
+						x.type = "text";
+					} else {
+						x.type = "password";
+					}
+				}
+			</script>
+			<br><br>
+		</div>
 	</div>
-	<div class="w-100"> </div>
-	<div class="col-sm"><h5>First name</h5></div>
-	<?php
-		echo "<input type='text' name ='User_FName' value ='".$firstname."' >";
-	?>
-	<div class="col-sm"></div>
-	<div class="w-100"> </div>
-	<div class="col-sm"><h5>Last name</h5></div>
 
-	<?php
-		echo "<input type='text' name ='User_LName' value ='".$lastname."' >";
-	?>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>Position</h5></div>
-	<div class="col-sm">
-	<select name = "User_Position" >
-	 <option value ="admin">admin</option>
-	 <option value ="hr">hr</option>
-	 <option value ="staff">staff</option>
-	</select>
-	</div>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>Department</h5></div>
-	<?php
-		echo "<input type='text' name ='User_Department' value ='".$department."' >";
-	?>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>Gender</h5></div>
-	<div class="col-sm">
-	<Select name="User_Gender" >
-	<option value ="Male">Male</option>
-	<option value ="Female">Female</option>
-	<option value ="Other">Other</option>
-	</select>
-	</div>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>Birthdate</h5></div>
-	<?php
-		echo "<input type='date' name ='User_DOB' value ='".$birthdate."' >";
-	?>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>tel no.</h5></div>
-	<?php
-		echo "<input type='text' name ='User_Tel' value ='".$tel."' >";
-	?>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>Email</h5></div>
-	<?php
-		echo "<input type='text' name ='User_Email' value ='".$uemail."' >";
-	?>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>Address</h5></div>
-	<?php
-		echo "<textarea name ='User_Address' rows = '3' cols = '40' >".$address."</textarea>";
-	?>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>Quota given</h5></div>
-	<?php
-		echo "<input type='text' name ='User_Quota' value ='".$quota."' >";
-	?>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>Username</h5></div>
-	<?php
-		echo "<input type='text' name ='User_Username' value ='".$username."' >";
-	?>
-	<div class="col-sm"></div>
-	<div class="w-100"></div>
-	<div class="col-sm"><h5>Password</h5></div>
-	<div class="col-sm">
-	<?php
-		echo "<input type='password' name ='User_Password' id='input' value ='".$password."' >";
-	?>
-	<p></p>
-	<input type="checkbox" onclick="myFunction()"> Show Password
-	</div>
-	<div class="col-sm"></div>
-</div>
-
-	<p></p>
-	<button type='submit' name='su' class ='btn-success' >Save</button>
-	<p></p>
-	</form>
-	<a class ='btn btn-primary' href ='list_of_user.php'>Back</a>
-	<script>
-function myFunction() {
-    var x = document.getElementById("input");
-    if (x.type === "password") {
-    x.type = "text";
-    } else {
-    x.type = "password";
-    }
-}
-</script>
 </body>
+
 </html>
-
-	
-
-	

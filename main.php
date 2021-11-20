@@ -103,7 +103,7 @@ $user_quota = $_SESSION['User_Quota'];
         </div>
         <div class="sf3"></div>
       </div>
-      <div class="container" style="background-color:#b7c098;font-family: 'Bahnschrift';">
+      <div class="container" style="background-color:#b7c098;font-family: 'Bahnschrift';border-color: black;">
         <div id="calendar"></div>
 
 
