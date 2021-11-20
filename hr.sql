@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2021 at 07:51 AM
+-- Generation Time: Nov 20, 2021 at 05:14 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `hr`
 --
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `range_user_event` (IN `User_ID_start` INT, IN `User_ID_end` INT, IN `Event_ID` INT)  BEGIN
+	  WHILE ( User_ID_start <= User_ID_end) DO
+      	INSERT INTO user_has_company_event (User_ID, Event_ID) VALUES (User_ID_start,Event_ID);
+        SET User_ID_start = User_ID_start + 1;
+        END WHILE;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -43,7 +56,7 @@ INSERT INTO `company_event` (`Event_ID`, `Event_Name`, `Event_Date_Start`, `Even
 (1, 'Holiday1', '2021-11-16 00:00:00', '2021-11-17 00:00:00', 'all'),
 (2, 'test2', '2021-11-17 00:00:00', '2021-11-18 00:00:00', ''),
 (5, 'new', '2021-11-18 00:00:00', '2021-11-20 00:00:00', ''),
-(6, 'yes', '2021-11-20 00:00:00', '2021-11-20 15:00:00', ''),
+(6, 'yes', '2021-11-20 00:00:00', '2021-11-20 12:00:00', ''),
 (7, 'john yeet day', '2021-11-21 00:00:00', '2021-11-22 00:00:00', '');
 
 -- --------------------------------------------------------
@@ -133,7 +146,12 @@ INSERT INTO `user_has_company_event` (`User_ID`, `Event_ID`) VALUES
 (1, 7),
 (10, 7),
 (9, 7),
-(3, 6);
+(3, 6),
+(1, 6),
+(2, 6),
+(3, 6),
+(4, 6),
+(5, 6);
 
 --
 -- Indexes for dumped tables
