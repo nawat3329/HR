@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2021 at 07:49 AM
+-- Generation Time: Nov 20, 2021 at 07:51 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -45,21 +45,6 @@ INSERT INTO `company_event` (`Event_ID`, `Event_Name`, `Event_Date_Start`, `Even
 (5, 'new', '2021-11-18 00:00:00', '2021-11-20 00:00:00', ''),
 (6, 'yes', '2021-11-20 00:00:00', '2021-11-20 15:00:00', ''),
 (7, 'john yeet day', '2021-11-21 00:00:00', '2021-11-22 00:00:00', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `hr_staff`
---
-
-CREATE TABLE `hr_staff` (
-  `HR_ID` int(11) NOT NULL,
-  `HR_Role` varchar(25) NOT NULL,
-  `HR_WorkDate` varchar(25) NOT NULL,
-  `HR_WorkTimeStart` time NOT NULL,
-  `HR_WorkTimeEnd` time NOT NULL,
-  `User_ID` int(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -161,13 +146,6 @@ ALTER TABLE `company_event`
   ADD PRIMARY KEY (`Event_ID`);
 
 --
--- Indexes for table `hr_staff`
---
-ALTER TABLE `hr_staff`
-  ADD PRIMARY KEY (`HR_ID`),
-  ADD KEY `User_User_ID` (`User_ID`);
-
---
 -- Indexes for table `leaving_form`
 --
 ALTER TABLE `leaving_form`
@@ -198,12 +176,6 @@ ALTER TABLE `company_event`
   MODIFY `Event_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `hr_staff`
---
-ALTER TABLE `hr_staff`
-  MODIFY `HR_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `leaving_form`
 --
 ALTER TABLE `leaving_form`
@@ -218,12 +190,6 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `hr_staff`
---
-ALTER TABLE `hr_staff`
-  ADD CONSTRAINT `hr_staff_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`);
 
 --
 -- Constraints for table `leaving_form`
